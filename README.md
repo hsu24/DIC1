@@ -4,6 +4,8 @@ A premium, minimalist single-page landing site for **Wan-Ho Hsu**, featuring a l
 
 **🔗 [Live Demo](https://hsu24.github.io/DIC1/)**
 
+![Homepage Snapshot](assets/homepage_snapshot.png)
+
 ## ✨ Features
 - **Dynamic Live Clock**: A real-time digital clock and date display that updates every second.
 - **Modern Typography**: High-contrast serif headings (**EB Garamond**) paired with elegant sans-serif body text (**Inter**).
