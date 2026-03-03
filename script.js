@@ -65,25 +65,5 @@ if (!isTouchDevice) {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Mobile Menu Logic
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenu && navLinks) {
-    mobileMenu.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-    });
-}
 
 
