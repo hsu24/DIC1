@@ -21,43 +21,70 @@ function updateClock() {
 // Custom Cursor Logic
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-document.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
+if (!isTouchDevice) {
+    document.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-    if (cursor) {
-        cursor.style.left = `${posX}px`;
-        cursor.style.top = `${posY}px`;
-    }
+        if (cursor) {
+            cursor.style.left = `${posX}px`;
+            cursor.style.top = `${posY}px`;
+        }
 
-    if (follower) {
-        follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-    }
-});
-
-// Cursor hover effect
-const links = document.querySelectorAll('a, .btn');
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
         if (follower) {
-            follower.style.width = '60px';
-            follower.style.height = '60px';
-            follower.style.backgroundColor = 'rgba(26, 26, 26, 0.1)';
+            follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
         }
     });
-    link.addEventListener('mouseleave', () => {
-        if (follower) {
-            follower.style.width = '40px';
-            follower.style.height = '40px';
-            follower.style.backgroundColor = 'transparent';
-        }
+
+    // Cursor hover effect
+    const links = document.querySelectorAll('a, .btn');
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            if (follower) {
+                follower.style.width = '60px';
+                follower.style.height = '60px';
+                follower.style.backgroundColor = 'rgba(26, 26, 26, 0.1)';
+            }
+        });
+        link.addEventListener('mouseleave', () => {
+            if (follower) {
+                follower.style.width = '40px';
+                follower.style.height = '40px';
+                follower.style.backgroundColor = 'transparent';
+            }
+        });
     });
-});
+} else {
+    if (cursor) cursor.style.display = 'none';
+    if (follower) follower.style.display = 'none';
+}
 
 // Initialize
 setInterval(updateClock, 1000);
 updateClock();
+
+// Mobile Menu Logic
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+}
 
 // Scroll Animations (Simple Reveal)
 const observerOptions = {
