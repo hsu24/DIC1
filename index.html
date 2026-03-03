@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wan-Ho Hsu | Personal Page</title>
+    <meta name="description" content="Personal portfolio and live clock for Wan-Ho Hsu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header>
+        <nav>
+            <div class="logo">W.H.H</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="background-image">
+                <img src="assets/background.png" alt="Serene Background">
+            </div>
+            <div class="hero-content">
+                <span class="decorator">✦</span>
+                <h1>Wan-Ho Hsu</h1>
+                <div class="clock-container">
+                    <p id="time-label">CURRENT TIME</p>
+                    <div id="clock" class="clock">00:00:00</div>
+                    <div id="date" class="date">Tuesday, March 3, 2026</div>
+                </div>
+                <div class="scroll-indicator">
+                    <span class="mouse">
+                        <span class="wheel"></span>
+                    </span>
+                    <p>SCROLL</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <span class="section-title">ABOUT</span>
+                        <h2>Minimalism meets functionality.</h2>
+                        <p>I am Wan-Ho Hsu, focused on creating elegant digital experiences that blend aesthetic beauty with seamless performance. Inspired by the serenity of nature and the precision of modern design.</p>
+                        <a href="#" class="btn">Discover More</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/background.png" alt="Detail Image" class="rounded-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Wan-Ho Hsu. All rights reserved.</p>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
